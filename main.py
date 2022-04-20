@@ -48,8 +48,8 @@ def todo(update: Update, context: CallbackContext):
     text = message['text']
     dt = message['date']
 
-    if text.startswith('/todo '):
-        text = text[len('/todo '):]
+    if text.startswith('/todo'):
+        text = text[len('/todo'):].strip()
 
     output = {
         'text': text,
@@ -65,7 +65,7 @@ def todo(update: Update, context: CallbackContext):
 todo_handler = CommandHandler('todo', todo)
 dispatcher.add_handler(todo_handler)
 
-echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
+echo_handler = MessageHandler(Filters.text & (~Filters.command), todo)
 dispatcher.add_handler(todo_handler)
 
 
