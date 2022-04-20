@@ -62,11 +62,11 @@ def todo(update: Update, context: CallbackContext):
     context.bot.send_message(chat_id=chat_id, text=text)
 
 
-todo_handler = CommandHandler('todo', todo)
-dispatcher.add_handler(todo_handler)
+todo_command_handler = CommandHandler('todo', todo)
+dispatcher.add_handler(todo_command_handler)
 
-echo_handler = MessageHandler(Filters.text & (~Filters.command), todo)
-dispatcher.add_handler(todo_handler)
+todo_text_handler = MessageHandler(Filters.text & (~Filters.command), todo)
+dispatcher.add_handler(todo_text_handler)
 
 
 print('starting listening...')
