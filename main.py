@@ -35,7 +35,7 @@ start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
 
-def echo(update: Update, context: CallbackContext):
+def todo(update: Update, context: CallbackContext):
     print('processing another message...')
 
     message = update.message
@@ -48,6 +48,9 @@ def echo(update: Update, context: CallbackContext):
     text = message['text']
     dt = message['date']
 
+    if text.startswith('/todo '):
+        text = text[len('/todo '):]
+
     output = {
         'text': text,
         'date': dt.strftime('%Y-%m-%d')
@@ -59,8 +62,11 @@ def echo(update: Update, context: CallbackContext):
     context.bot.send_message(chat_id=chat_id, text=text)
 
 
+todo_handler = CommandHandler('todo', todo)
+dispatcher.add_handler(todo_handler)
+
 echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
-dispatcher.add_handler(echo_handler)
+dispatcher.add_handler(todo_handler)
 
 
 print('starting listening...')
