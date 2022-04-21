@@ -51,6 +51,10 @@ def todo(update: Update, context: CallbackContext):
     if text.startswith('/todo'):
         text = text[len('/todo'):].strip()
 
+    if len(text) == 0:
+        print('empty, exiting')
+        return
+
     output = {
         'text': text,
         'date': dt.strftime('%Y-%m-%d')
