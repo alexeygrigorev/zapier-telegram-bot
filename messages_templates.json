@@ -1,0 +1,10 @@
+{
+    "message_id1": {
+        "message": "test",
+        "chat_id": 123
+    },
+    "message_id2": {
+        "message": "test",
+        "chat_id": 123
+    }
+}
