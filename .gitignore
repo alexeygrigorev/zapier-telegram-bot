@@ -1,2 +1,4 @@
 .envrc
 messages.json
+extras.sh
+send.log
