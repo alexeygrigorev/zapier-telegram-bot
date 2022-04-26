@@ -31,7 +31,7 @@ bot_message = template.format(message=message)
 
 bot = Bot(token=TELEGRAM_TOKEN)
 bot.send_message(chat_id=chat_id, text=message)
-
+print(f'sucessfully sent message to {chat_id}')
 
 now = datetime.now()
 
@@ -41,4 +41,4 @@ zapier_payload = {
 }
 
 requests.post(ZAPIER_CALLBACK, json=zapier_payload)
-
+print(f'succesfully posted to the callback')
