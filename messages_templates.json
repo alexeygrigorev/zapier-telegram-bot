@@ -6,5 +6,6 @@
     "message_id2": {
         "message": "test",
         "chat_id": 123
-    }
+    },
+    "template": "{message}"
 }

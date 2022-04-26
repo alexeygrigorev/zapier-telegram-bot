@@ -29,7 +29,7 @@ Copy `message_templates.json` to `messages.json` and edit it.
 Then you can send messages:
 
 ```bash
-python send.py message_id
+./send.sh message_id
 ```
 
 For scheduling it with cron, use crontab:
@@ -41,10 +41,20 @@ crontab -e
 And add:
 
 ```cron
-0 5 * * WED python /home/ubuntu/zapier-telegram-bot/send.py newsletter_wednesday_reminder
+0 5 * * WED /home/ubuntu/zapier-telegram-bot/send.sh newsletter_wednesday_reminder
 ```
 
+Example of `messages.json`:
 
+```json
+{
+    "newsletter_wednesday_reminder": {
+        "message": "Prepare a newsletter for the next week!",
+        "chat_id": -12345
+    },
+    "template": "New TODO item added:\n\n{message}"
+}
+```
 
 
 
