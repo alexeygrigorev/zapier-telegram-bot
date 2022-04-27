@@ -23,6 +23,8 @@ function my_on_edit() {
 
   if (sheet.getName() == "done") {
     if (cell.getValue().toLowerCase() == 'todo') {
+      var nextCell = cell.offset(0, 1);
+      nextCell.setValue('');
       moveRowFromDoneToTodo(cell.getRow());
     }
   }
