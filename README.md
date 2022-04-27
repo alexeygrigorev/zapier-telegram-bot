@@ -56,5 +56,9 @@ Example of `messages.json`:
 }
 ```
 
+## Moving "DONE" items to another sheet 
 
+If you use Google Sheets for managing your todos, check `todo.js`
+for the code for moving done items from the "todo" sheet to "done"
+sheet.
 
